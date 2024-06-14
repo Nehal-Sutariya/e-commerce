@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgot Password</title>
+    <script type="text/javascript">
+        function check_valid() {
+            var pass1 = document.forms["frmforg2"]["pass1"].value;
+            var pass2 = document.forms["frmforg2"]["pass2"].value;
+
+            if (pass1 === "") {
+                alert("Enter your new password");
+                document.forms["frmforg2"]["pass1"].focus();
+                return false;
+            }
+
+            if (pass2 === "") {
+                alert("Enter your confirm password");
+                document.forms["frmforg2"]["pass2"].focus();
+                return false;
+            }
+
+            if (pass1 !== pass2) {
+                alert("New password and confirm password do not match");
+                document.forms["frmforg2"]["pass1"].focus();
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        table {
+            border: 5px solid #74C8ED;
+            background-color: #74C8ED;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        th {
+            text-align: center;
+        }
+        td {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form action="action/forg2.php" name="frmforg2" method="post" onsubmit="return check_valid();">
+        <div>
+            <center>
+                <table>
+                    <tr>
+                        <th colspan="2">
+                            <h2><b><font face="Brush Script MT" color="#005E8A" size="6">Forgot Password..??</font></b></h2>
+                        </th>
+                    </tr>
+                    <?php
+                    $uname = htmlspecialchars($_REQUEST['unm']);
+                    if (isset($uname)) {
+                        echo "<input type='hidden' name='uname' value='$uname'>";
+                    }
+                    ?>
+                    <?php
+                    if (isset($_REQUEST['msg'])) {
+                        if ($_REQUEST['msg'] == 0) {
+                            echo "<tr><td colspan='2'>Passwords do not match</td></tr>";
+                        } else {
+                            echo "<tr><td colspan='2'>Passwords matched</td></tr>";
+                        }
+                    }
+                    ?>
+                    <tr>
+                        <td><font size="4"><b>New Password</b></font></td>
+                        <td><input type="password" name="pass1" id="pass1" class="textbox"></td>
+                    </tr>
+                    <tr>
+                        <td><font size="4"><b>Confirm Password</b></font></td>
+                        <td><input type="password" name="pass2" id="pass2" class="textbox"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center">
+                            <input type="submit" name="submit" value="Submit" class="button">
+                            <input type="reset" name="cancel" value="Cancel" class="button">
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </div>
+    </form>
+</body>
+</html>
