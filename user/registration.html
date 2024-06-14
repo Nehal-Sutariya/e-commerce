@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .registration-container {
+            text-align: center;
+            margin: 20px;
+        }
+        .registration-table {
+            margin: 0 auto;
+            border: 10px solid lightgrey;
+            padding: 20px;
+            background-color: lightgrey;
+        }
+        .registration-table td {
+            padding: 10px;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+    <script type="text/javascript">
+        function check_valid() {
+            var nameRegex = /^[A-Za-z]{1,50}$/;
+            var noRegex = /^\d{10}$/;
+            var emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,5}$/;
+
+            var fname = document.registration.fnm.value.trim();
+            var lname = document.registration.lnm.value.trim();
+            var addr = document.registration.addr.value.trim();
+            var city = document.registration.city.value.trim();
+            var contno = document.registration.contno.value.trim();
+            var email = document.registration.email.value.trim();
+            var unm = document.registration.unm.value.trim();
+            var pass = document.registration.pass.value;
+
+            if (fname === "") {
+                alert("Enter your first name");
+                document.registration.fnm.focus();
+                return false;
+            } else if (!nameRegex.test(fname)) {
+                alert("Enter only characters in first name");
+                document.registration.fnm.focus();
+                return false;
+            }
+
+            if (lname === "") {
+                alert("Enter your last name");
+                document.registration.lnm.focus();
+                return false;
+            } else if (!nameRegex.test(lname)) {
+                alert("Enter only characters in last name");
+                document.registration.lnm.focus();
+                return false;
+            }
+
+            if (addr === "") {
+                alert("Enter your address");
+                document.registration.addr.focus();
+                return false;
+            }
+
+            if (city === "") {
+                alert("Enter your city");
+                document.registration.city.focus();
+                return false;
+            } else if (!nameRegex.test(city)) {
+                alert("Enter valid city");
+                document.registration.city.focus();
+                return false;
+            }
+
+            if (contno === "") {
+                alert("Enter your contact number");
+                document.registration.contno.focus();
+                return false;
+            } else if (!noRegex.test(contno)) {
+                alert("Enter valid 10 digit contact number");
+                document.registration.contno.focus();
+                return false;
+            }
+
+            if (email === "") {
+                alert("Enter your email");
+                document.registration.email.focus();
+                return false;
+            } else if (!emailRegex.test(email)) {
+                alert("Enter proper email address");
+                document.registration.email.focus();
+                return false;
+            }
+
+            if (unm === "") {
+                alert("Enter your username");
+                document.registration.unm.focus();
+                return false;
+            } else if (!nameRegex.test(unm)) {
+                alert("Enter only characters in username");
+                document.registration.unm.focus();
+                return false;
+            }
+
+            if (pass === "") {
+                alert("Enter your password");
+                document.registration.pass.focus();
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div class="registration-container">
+        <form action="action/register_insert.php" method="post" name="registration" onsubmit="return check_valid()">
+            <table class="registration-table" border="10" align="center" bgcolor="lightgrey">
+                <tr>
+                    <th colspan="2">
+                        <h2><font face="Brush Script MT" color="#005E8A" size="8">Registration Form</font></h2>
+                    </th>
+                </tr>
+                <tr>
+                    <td><h3><b>First Name</b></h3></td>
+                    <td>
+                        <input type="text" name="fnm" placeholder="Enter Your First Name" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h3><b>Last Name</b></h3></td>
+                    <td>
+                        <input type="text" name="lnm" placeholder="Enter Your Last Name" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h3><b>Address</b></h3></td>
+                    <td>
+                        <textarea rows="4" cols="50" name="addr" placeholder="Enter Your Address" required></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h3><b>City</b></h3></td>
+                    <td>
+                        <input type="text" name="city" placeholder="Enter Your City" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h3><b>Contact Number</b></h3></td>
+                    <td>
+                        <input type="text" name="contno" placeholder="Enter Your Contact Number" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h3><b>Email ID</b></h3></td>
+                    <td>
+                        <input type="text" name="email" placeholder="Enter Your Email ID" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h3><b>Username</b></h3></td>
+                    <td>
+                        <input type="text" name="unm" placeholder="Enter Username" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h3><b>Password</b></h3></td>
+                    <td>
+                        <input type="password" name="pass" placeholder="Enter Password" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="submit" name="submit" value="Submit" class="button">
+                        <input type="reset" name="cancel" value="Cancel" class="button">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

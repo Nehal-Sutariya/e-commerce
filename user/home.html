@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Our Site</title>
+    <link rel="stylesheet" href="style/style.css">
+    <style>
+        .marquee-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .image-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        .image-container img {
+            margin: 10px;
+            height: 190px;
+            width: 190px;
+            object-fit: cover; /* Ensure images maintain aspect ratio */
+        }
+    </style>
+</head>
+<body>
+    <div id="content_main">
+        <h2 style="color: #005E8A; text-align: center; font-size: 32px;">Welcome to our site</h2>
+    </div>
+    
+    <div class="marquee-container">
+        <marquee scrollamount="5" width="60%">
+            <img src="images/doormate3.jpg" height="100px" width="150px" alt="Doormate 3">
+        </marquee>
+    </div>
+    
+    <div class="marquee-container">
+        <marquee scrollamount="5" direction="right" width="60%">
+            <img src="images/pi8.jpg" alt="Pi8">
+            <img src="images/pi7.jpg" alt="Pi7">
+            <img src="images/pillow3.jpg" alt="Pillow 3">
+            <img src="images/cer1.jpg" alt="Cer 1">
+            <img src="images/blanket1.jpg" alt="Blanket 1">
+            <img src="images/bedsheet5.jpg" alt="Bedsheet 5">
+            <img src="images/asan1.jpg" alt="Asan 1">
+            <img src="images/show/1.jpg" alt="Show 1">
+        </marquee>
+    </div>
+    
+    <div class="image-container">
+        <img src="images/show12.jpg" alt="Show 12">
+        <img src="images/towel6.jpg" alt="Towel 6">
+        <img src="images/doormate3.jpg" alt="Doormate 3">
+        <img src="images/fo1.jpg" alt="Fo 1">
+    </div>
+    
+    <marquee scrollamount="5" width="100%">Some scrolling text here</marquee>
+</body>
+</html>
